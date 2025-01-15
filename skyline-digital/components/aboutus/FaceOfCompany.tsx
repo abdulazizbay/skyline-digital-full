@@ -18,7 +18,7 @@ export const FaceOfCompany = () => {
                 className="w-full pt-100 lg:pt-0"
                 plugins={[
                     Autoplay({
-                        delay: 2000,
+                        delay: 5000,
                     }),
                 ]}
             >

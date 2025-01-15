@@ -79,70 +79,75 @@ export const Services1 = () => {
     };
 
     return (
-        <div className="pt-150 pb-130 max-w-[1143px] mx-auto lg:pt-50 px-3">
-            <h4 className="lg:text-base">Выберите сервис</h4>
-            <Progress value={progress} className="w-full bg-gray4 mt-7 lg:mt-5 "/>
-            <div className="pt-100 flexBetween lg:pt-50 ">
-                <div className=" md:mx-auto">
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
-                            <FormField
-                                control={form.control}
-                                name="items"
-                                render={() => (
-                                    <FormItem className="grid grid-cols-2 gap-[25px] xl:flexCol lg:gap-2.5 ">
-                                        {(SERVICESINFO[dataInfo] || []).map((item) => (
-                                            <FormField
-                                                key={item.label}
-                                                control={form.control}
-                                                name="items"
-                                                render={({ field }) => (
-                                                    <FormItem
-                                                        className="flex gap-5  w-[346px] lg:h-[58px]  h-90 bg-[#0DA4F51A] rounded-[24px] items-center pl-[40px] cursor-pointer"
-                                                    >
-                                                        <FormControl>
-                                                            <Checkbox
-                                                                className="rounded-full w-5 h-5 bg-gray5 lg:w-2.5 lg:h-2.5"
-                                                                checked={field.value?.includes(item.label)}
-                                                                onCheckedChange={(checked) => {
-                                                                    return checked
-                                                                        ? field.onChange([...field.value, item.label])
-                                                                        : field.onChange(
-                                                                            field.value?.filter(
-                                                                                (value) => value !== item.label
-                                                                            )
-                                                                        );
-                                                                }}
-                                                            />
-                                                        </FormControl>
-                                                        <FormLabel className="flex gap-4 items-center">
-                                                            <h6 className="bold-500 lg:text-lg">{item.label}</h6>
-                                                        </FormLabel>
-                                                    </FormItem>
-                                                )}
-                                            />
-                                        ))}
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                            <div className="flex justify-between mt-50">
-                                {progress > 25 && <NextPrevButton role="prev" onClick={handlePrev} />}
-                                <NextPrevButton role="next" />
-                            </div>
-                        </form>
-                    </Form>
+        <div className="max-container-width relative overflow-hidden">
+            <div className="w-[400px] h-[450px] mt-[400px]  absolute -right-[300px] bg-blue7 blur-100 rounded-full  neon-shadow-bg ">
+            </div>
+            <div className="pt-150 pb-130 max-w-[1143px] mx-auto lg:pt-50 px-3">
+                <h4 className="lg:text-base">Выберите сервис</h4>
+                <Progress value={progress} className="w-full bg-gray4 mt-7 lg:mt-5 "/>
+                <div className="pt-100 flexBetween lg:pt-50 ">
+                    <div className=" md:mx-auto">
+                        <Form {...form}>
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+                                <FormField
+                                    control={form.control}
+                                    name="items"
+                                    render={() => (
+                                        <FormItem className="grid grid-cols-2 gap-[25px] xl:flexCol lg:gap-2.5 ">
+                                            {(SERVICESINFO[dataInfo] || []).map((item) => (
+                                                <FormField
+                                                    key={item.label}
+                                                    control={form.control}
+                                                    name="items"
+                                                    render={({ field }) => (
+                                                        <FormItem
+                                                            className="flex gap-5  w-[346px] lg:h-[58px]  h-90 bg-[#0DA4F51A] rounded-[24px] items-center pl-[40px] cursor-pointer"
+                                                        >
+                                                            <FormControl>
+                                                                <Checkbox
+                                                                    className="rounded-full w-5 h-5 bg-gray5 lg:w-2.5 lg:h-2.5"
+                                                                    checked={field.value?.includes(item.label)}
+                                                                    onCheckedChange={(checked) => {
+                                                                        return checked
+                                                                            ? field.onChange([...field.value, item.label])
+                                                                            : field.onChange(
+                                                                                field.value?.filter(
+                                                                                    (value) => value !== item.label
+                                                                                )
+                                                                            );
+                                                                    }}
+                                                                />
+                                                            </FormControl>
+                                                            <FormLabel className="flex gap-4 items-center">
+                                                                <h6 className="bold-500 lg:text-lg">{item.label}</h6>
+                                                            </FormLabel>
+                                                        </FormItem>
+                                                    )}
+                                                />
+                                            ))}
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <div className="flex justify-between mt-50">
+                                    {progress > 25 && <NextPrevButton role="prev" onClick={handlePrev} />}
+                                    <NextPrevButton role="next" />
+                                </div>
+                            </form>
+                        </Form>
+                    </div>
+                    <div className="md:hidden">
+                        <Summary />
+                    </div>
+
+
+
+
+
                 </div>
-                <div className="md:hidden">
-                    <Summary />
-                </div>
-
-
-
-
-
             </div>
         </div>
+
     );
 };
 

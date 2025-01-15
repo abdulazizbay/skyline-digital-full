@@ -14,7 +14,10 @@ interface Principle {
 
 export const Principles = () => {
     return (
-            <div className="max-container pt-150 lg:pt-50">
+        <div className="max-container-width  pt-150 lg:pt-50 relative overflow-hidden">
+            <div className="w-200 h-400  mt-[150px] absolute bg-blue5  rounded-full  neon-shadow-box blur-100 -right-20  ">
+            </div>
+            <div className="max-container">
                 <h4 className="lg:hidden" >Наши принципы</h4>
 
                 {/* Carousel for mobile */}
@@ -74,8 +77,11 @@ export const Principles = () => {
                     </div>
 
                 </div>
-                <Reviews/>
+
             </div>
+            <Reviews/>
+
+        </div>
 
 
     );

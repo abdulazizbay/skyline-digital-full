@@ -72,19 +72,20 @@ export const Navbar = () => {
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
-                                <NavigationMenuTrigger className="transition duration-300">
-                                    <h6>+998(90) 777 77 77</h6>
+                                <NavigationMenuTrigger className="">
+                                    <div className="flexCol ">
+                                        <h6>+998(90) 777 77 77</h6>
+                                        <p className="text-[11px] flex justify-normal">SKYLINE DIGITAL</p>
+                                    </div>
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent className="flex float-right">
                                     <ul className="">
                                         <li>
                                             <NavigationMenuLink className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition duration-200">
-                                                Телеграм
+                                                +998(90) 777 77 77
                                             </NavigationMenuLink>
-                                        </li>
-                                        <li>
                                             <NavigationMenuLink className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition duration-200">
-                                                Инстаграм
+                                                +998(90) 777 77 77
                                             </NavigationMenuLink>
                                         </li>
                                     </ul>
@@ -92,7 +93,7 @@ export const Navbar = () => {
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
-                    <p className="text-[11px]">SKYLINE DIGITAL</p>
+
                 </div>
 
                 <NavigationMenu>

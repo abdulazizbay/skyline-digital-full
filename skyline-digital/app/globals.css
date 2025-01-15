@@ -178,42 +178,6 @@ h3{
     @apply flex items-center justify-end;
   }
 
-  /* FONTS */
-  .regular-64 {
-    @apply text-[64px] font-[400] leading-[120%];
-  }
-
-  .regular-40 {
-    @apply text-[40px] font-[400] leading-[120%];
-  }
-
-  .regular-32 {
-    @apply text-[32px] font-[400];
-  }
-
-  .regular-24 {
-    @apply text-[24px] font-[400];
-  }
-
-  .regular-20 {
-    @apply text-[20px] font-[400];
-  }
-
-  .regular-18 {
-    @apply text-[18px] font-[400];
-  }
-
-  .regular-16 {
-    @apply text-[16px] font-[400];
-  }
-
-  .regular-14 {
-    @apply text-[14px] font-[400];
-  }
-
-  .medium-14 {
-    @apply text-[14px] font-[600];
-  }
 
   .bold-500 {
     @apply font-[500];
@@ -292,13 +256,6 @@ h3{
   align-items: center;
   border-radius: 50%;
 }
-/*@media (max-width: 1024px) {*/
-/*  .circle-text {*/
-/*    width: 40px;*/
-/*    height: 40px;*/
-
-/*  }*/
-/*}*/
 
 .circle-text span {
   position: absolute;
@@ -312,42 +269,58 @@ h3{
 .neon-shadow {
   color: #0DA4F5; 
   text-shadow:
-          0 0 1px #0DA4F5,    /* Inner glow */
-          0 0 10px #0DA4F5,   /* Mid glow */
-          0 0 20px #0DA4F5,   /* Outer glow */
-          0 0 40px #0DA4F5;   /* Extended glow */
+          0 0 1px #0DA4F5,
+          0 0 10px #0DA4F5,
+          0 0 20px #0DA4F5,
+          0 0 40px #0DA4F5;
 }
 .neon-shadow-box {
   box-shadow:
-          inset 0 0 0px #0DA4F5,  /* Inner glow */
-          inset 0 0 10px #0DA4F5, /* Stronger inner glow */
-          0 0 10px #0DA4F5,       /* Outer glow */
-          0 0 100px #0DA4F5;       /* Extended outer glow */
+          inset 0 0 0px #0DA4F5,
+          inset 0 0 10px #0DA4F5,
+          0 0 10px #0DA4F5,
+          0 0 100px #0DA4F5;
 }
 .neon-shadow-box-light {
   box-shadow:
-           0 0 0px #0DA4F5,  /* Inner glow */
-          0 0 0px #0DA4F5, /* Stronger inner glow */
-          0 0 0px #0DA4F5,       /* Outer glow */
-          0 0 1px #0DA4F5;       /* Extended outer glow */
+           0 0 0px #0DA4F5,
+          0 0 0px #0DA4F5,
+          0 0 0px #0DA4F5,
+          0 0 5px #0DA4F5;
+}
+
+.neon-shadow-border {
+  box-shadow:
+          inset 0 0 0px #0DA4F5,
+          0 0 0px #0DA4F5,
+          0 0 1px #0DA4F5,
+          0 0 10px #0DA4F5;
+
 }
 
 .neon-shadow-white {
   color: #0DA4F5; 
   text-shadow:
-          0 0 3px white,    /* Inner glow */
-          0 0 10px #0DA4F5,   /* Mid glow */
-          0 0 20px #0DA4F5,   /* Outer glow */
-          0 0 120px #0DA4F5;   /* Extended glow */
+          0 0 3px white,
+          0 0 10px #0DA4F5,
+          0 0 20px #0DA4F5,
+          0 0 120px #0DA4F5;
+}
+.neon-shadow-bg{
+  box-shadow:
+          inset 0 0 0px #0DA4F5,
+          0 0 0px #0DA4F5,
+          0 0 1px #0DA4F5,
+          0 0 50px #0DA4F5;
 }
 
 .shadow-white {
   color: white;
   box-shadow:
-          0 0 10px white,    /* Inner glow */
-          0 0 10px white,   /* Mid glow */
-          0 0 5px white,   /* Outer glow */
-          0 0 0px white;   /* Extended glow */
+          0 0 10px white,
+          0 0 10px white,
+          0 0 5px white,
+          0 0 0px white;
 }
 .shadow-white-text{
   color: white; 
@@ -356,4 +329,21 @@ h3{
           0 0 0px white, 
           0 0 10px white,   
           0 0 50px white;   
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition-delay: 9999s;
+  transition-delay: 9999s;
+}
+
+
+
+.intense-glow-icon {
+  position: relative;
+  display: inline-block;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8))
+  drop-shadow(0 0 30px rgba(255, 255, 255, 0.6))
+  drop-shadow(0 0 60px rgba(255, 255, 255, 0.4))
 }

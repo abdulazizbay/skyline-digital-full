@@ -5,27 +5,91 @@ import Image from "next/image";
 import React from "react";
 import arrowDownIcon from "@/app/assets/images/arrowScroll.svg"
 import scrollDownIcon from "@/app/assets/images/bannerScrollIcon.svg";
+import leaveReqIcon from "@/app/assets/images/leaveReqIcon.svg"
+import { useEffect, useState } from "react";
 
-export const ButtonCircle = () => {
+
+export const ButtonCircle = ({isHomePage}) => {
+    const [visibleIndex, setVisibleIndex] = useState(-1);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setVisibleIndex((prev) =>
+                prev < (isHomePage ? 5 : 3) ? prev + 1 : -1
+            );
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [isHomePage]);
+
     return (
-        <button
-            className=" neon-shadow-box-light lg:w-10 lg:h-10 lg:text-[8px]  w-100 h-100 lg:leading-2 border-[1px] border-blue-main rounded-full text-center flex items-center justify-center "
-        >
-            <span className="shadow-white-text">
-                  Оставить
-            <br/>
-            заявку
-            </span>
+        <div className=" relative flex items-center justify-center ">
+            {Array.from({ length: isHomePage ? 6 : 4 }).map((_, index) => {
+                const isVisible = visibleIndex === index;
+                const isFading = visibleIndex - 1 === index;
 
-        </button>
+                return (
+                    <div
+                        key={index}
+                        className={` neon-shadow-border blur-[1px] absolute rounded-full border-[3px] border-blue-main transition-opacity duration-[4000ms] ${
+                            isVisible
+                                ? "opacity-100" 
+                                : isFading
+                                    ? "opacity-50" 
+                                    : "opacity-0" 
+                        }`}
+                        style={{
+                            width: `${100 + index * 100}px`,
+                            height: `${100 + index * 100}px`,
+                        }}
+                    ></div>
+                );
+            })}
+            {/* Button */}
+            <button
+                className=" neon-shadow-box-light lg:w-10 lg:h-10 lg:text-[8px] w-100 h-100 lg:leading-2 border-[1px] border-blue-main rounded-full text-center flex items-center justify-center"
+            >
+        <span className="shadow-white-text">
+          Оставить
+          <br />
+          заявку
+        </span>
+            </button>
+        </div>
     );
 };
 
+
+
+
+// export const ButtonCircle = () => {
+//     return (
+//         <button
+//             className=" neon-shadow-box-light lg:w-10 lg:h-10 lg:text-[8px]  w-100 h-100 lg:leading-2 border-[1px] border-blue-main rounded-full text-center flex items-center justify-center "
+//         >
+//             <span className="shadow-white-text">
+//                   Оставить
+//             <br/>
+//             заявку
+//             </span>
+//
+//         </button>
+//     );
+// };
+
 export const LeaveRequestLink = () => {
     return (
-        <Link href="/" className="underline  ">
-            <p className="text-white font-bold lg:text-xs">Оставить заявку</p>
-            {/* <Image src={leaveRequestIcon} alt="request image" /> */}
+        <Link href="/" className="relative group inline-flex items-center gap-2 underline">
+            <p className="text-white font-bold lg:text-xs">
+                Оставить заявку
+            </p>
+            <div className="relative">
+                {/* Icon with shining effect */}
+                <Image
+                    src={leaveReqIcon}
+                    alt="request image"
+                    className="intense-glow-icon"
+                />
+            </div>
         </Link>
     );
 };

@@ -19,6 +19,9 @@ const config: Config = {
     			'black1': '#101010',
 				blue5:"#0DA4F51A",
 				blue6:"#0DA4F51A",
+				blue7:"#489CFFCC",
+				blue8:"#009DE5",
+				blue9:"#4B87CECC",
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',
     			card: {
@@ -95,7 +98,8 @@ const config: Config = {
     			'50': '50px',
     			'100': '100px',
     			'150': '150px',
-    			'200': '200px'
+    			'200': '200px',
+    			'300': '300px'
     		},
     		width: {
     			'50': '50px',
@@ -117,6 +121,12 @@ const config: Config = {
     		},
 			gap:{
 				50: '50px',
+			},
+			blur: {
+				'100': '100px',
+				'150': '150px',
+				'200': '200px',
+				'250': '250px',
 			},
     		fontFamily: {
     			Inter: ['Inter', 'sans-serif']
