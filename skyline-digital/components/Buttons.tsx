@@ -17,12 +17,12 @@ export const ButtonCircle = ({isHomePage}) => {
             setVisibleIndex((prev) =>
                 prev < (isHomePage ? 5 : 3) ? prev + 1 : -1
             );
-        }, 5000);
+        }, 3000);
         return () => clearInterval(interval);
     }, [isHomePage]);
 
     return (
-        <div className=" relative flex items-center justify-center ">
+        <div className="relative flex items-center justify-center ">
             {Array.from({ length: isHomePage ? 6 : 4 }).map((_, index) => {
                 const isVisible = visibleIndex === index;
                 const isFading = visibleIndex - 1 === index;
@@ -30,7 +30,7 @@ export const ButtonCircle = ({isHomePage}) => {
                 return (
                     <div
                         key={index}
-                        className={` neon-shadow-border blur-[1px] absolute rounded-full border-[3px] border-blue-main transition-opacity duration-[4000ms] ${
+                        className={`-z-10   neon-shadow-border blur-[1px] absolute rounded-full border-[3px] border-blue-main transition-opacity duration-[6000ms] ${
                             isVisible
                                 ? "opacity-100" 
                                 : isFading
@@ -44,37 +44,30 @@ export const ButtonCircle = ({isHomePage}) => {
                     ></div>
                 );
             })}
-            {/* Button */}
             <button
-                className=" neon-shadow-box-light lg:w-10 lg:h-10 lg:text-[8px] w-100 h-100 lg:leading-2 border-[1px] border-blue-main rounded-full text-center flex items-center justify-center"
+                className="group relative
+                        hover:before:content-[''] hover:before:absolute hover:before:inset-0
+                        hover:before:rounded-full hover:before:blur-[100px]
+                        hover:before:shadow-[0px_0px_100px_#0DA4F5,0px_0px_100px_#0DA4F5]
+                        hover:animate-bg-change hover:neon-shadow-bg
+                        transition-all duration-700 ease-in-out
+                        neon-shadow-box-light lg:w-10 lg:h-10
+                        lg:text-[8px] w-100 h-100 lg:leading-2
+                        border-[1px] border-blue-main rounded-full
+                        text-center flex items-center justify-center"
+
+
             >
-        <span className="shadow-white-text">
-          Оставить
-          <br />
-          заявку
-        </span>
+                <span className="bold-700 shadow-white-text group-hover:text-blue-main transition-colors duration-300 ease-in-out">
+                    Оставить
+                    <br />
+                    заявку
+                </span>
             </button>
+
         </div>
     );
 };
-
-
-
-
-// export const ButtonCircle = () => {
-//     return (
-//         <button
-//             className=" neon-shadow-box-light lg:w-10 lg:h-10 lg:text-[8px]  w-100 h-100 lg:leading-2 border-[1px] border-blue-main rounded-full text-center flex items-center justify-center "
-//         >
-//             <span className="shadow-white-text">
-//                   Оставить
-//             <br/>
-//             заявку
-//             </span>
-//
-//         </button>
-//     );
-// };
 
 export const LeaveRequestLink = () => {
     return (
@@ -83,7 +76,6 @@ export const LeaveRequestLink = () => {
                 Оставить заявку
             </p>
             <div className="relative">
-                {/* Icon with shining effect */}
                 <Image
                     src={leaveReqIcon}
                     alt="request image"
@@ -143,24 +135,10 @@ interface SkyLineLogoButtonProps {
     sizeTitle: 'sm' | 'md' | 'lg';
     sizeDesc: 'xs' | 'sm' | 'md';
     gapAll: 'small' | 'medium' | 'large';
-    role: "navbar" | "review";
+    role?: "navbar" | "review" ;
 }
 
 
-interface SkyLineLogoButtonProps {
-    wCircle: "small" | "medium";
-    hCircle: "small" | "medium";
-    borCircle: "thin" | "medium";
-    wRectangle: "small" | "medium";
-    hRectangle: "small" | "medium";
-    borRectangle: "thin" | "medium";
-    hLine: "short" | "medium";
-    gapText: "small" | "medium";
-    sizeTitle: "sm" | "md";
-    sizeDesc: "xs" | "sm";
-    gapAll: "small" | "medium";
-    role?: "navbar" | "default";
-}
 
 export const SkyLineLogoButton: React.FC<SkyLineLogoButtonProps> = ({
     wCircle,
@@ -174,7 +152,7 @@ export const SkyLineLogoButton: React.FC<SkyLineLogoButtonProps> = ({
     sizeTitle,
     sizeDesc,
     gapAll,
-    role = "default",
+    role ,
                                                                     }) => {
     // Utility variants
     const circleWidthVariants = {

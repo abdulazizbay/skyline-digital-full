@@ -61,9 +61,39 @@ export const Navbar = () => {
                 <ul className="flex gap-12">
                     {NAV_LINKS.map((link) => (
                         <li key={link.key}>
-                            <Link href={link.href}>
-                                <h6>{link.label}</h6>
-                            </Link>
+                            {
+                                link.dropDown?(
+                                    <NavigationMenu>
+                                        <NavigationMenuList>
+                                            <NavigationMenuItem>
+                                                <NavigationMenuTrigger >
+                                                    <Link href={link.href}>
+                                                        <h6>{link.label}</h6>
+                                                    </Link>
+                                                </NavigationMenuTrigger>
+                                                <NavigationMenuContent className="flex">
+                                                    <ul className="">
+                                                        <li>
+                                                            <NavigationMenuLink className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition duration-200">
+                                                                +998(90) 777 77 77
+                                                            </NavigationMenuLink>
+                                                            <NavigationMenuLink className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition duration-200">
+                                                                +998(90) 777 77 77
+                                                            </NavigationMenuLink>
+                                                        </li>
+                                                    </ul>
+                                                </NavigationMenuContent>
+                                            </NavigationMenuItem>
+                                        </NavigationMenuList>
+                                    </NavigationMenu>
+                                ):(
+                                    <Link href={link.href}>
+                                        <h6>{link.label}</h6>
+                                    </Link>
+                                )
+                            }
+
+
                         </li>
                     ))}
                 </ul>
@@ -72,10 +102,10 @@ export const Navbar = () => {
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
-                                <NavigationMenuTrigger className="">
+                                <NavigationMenuTrigger className="items-start">
                                     <div className="flexCol ">
                                         <h6>+998(90) 777 77 77</h6>
-                                        <p className="text-[11px] flex justify-normal">SKYLINE DIGITAL</p>
+                                        <p className="text-[11px] flex justify-normal mt-1">SKYLINE DIGITAL</p>
                                     </div>
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent className="flex float-right">

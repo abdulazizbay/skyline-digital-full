@@ -7,6 +7,7 @@ import Image from "next/image";
 import * as React from "react";
 
 export const FaceOfCompany = () => {
+    console.log(faceOfCompanyInfo.length)
     return (
         <div className="max-container-width pt-150 lg:pt-50">
             <div className="max-container">
@@ -21,10 +22,14 @@ export const FaceOfCompany = () => {
                         delay: 5000,
                     }),
                 ]}
+                opts={{
+                    loop: true,
+                    align: "start",
+                }}
             >
                 <CarouselContent className="flex gap-4 lg:gap-3">
                     {faceOfCompanyInfo.map((item, index) => (
-                        <CarouselItem key={index} className="flex-none">
+                        <CarouselItem key={index} className="flex-none first:ml-3.5">
                             <Card className="shadow-none">
                                 <CardContent className="flex-col text-center ">
                                     <Image

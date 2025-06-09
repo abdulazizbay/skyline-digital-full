@@ -33,7 +33,7 @@ export const HomeBanner = () => {
                 </div>
 
             </div>
-            <div className=" float-right -translate-x-[200px] -translate-y-[300px]">
+            <div className=" float-right -translate-x-[200px] -translate-y-[300px] lg:hidden">
                 <ButtonCircle isHomePage={true} />
 
             </div>

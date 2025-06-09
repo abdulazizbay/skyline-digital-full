@@ -19,11 +19,11 @@ const NextStepPage = () => {
 
     return (
         <div className="max-container pt-70 pb-10 lg:pt-50">
-            <div className="max-w-[642px] sm:max-w-full">
+            <div className="">
                 <h4 className="bold-700 lg:text-xl">
                     Ваша персональная оценка почти завершена!
                 </h4>
-                <p className="bold-500 mt-10 leading-6 lg:text-base lg:mt-25">
+                <p className="bold-500 mt-10 leading-6 lg:text-base lg:mt-25 max-w-[642px] sm:max-w-full">
                     Чтобы убедиться в его точности, у нас осталось всего несколько вопросов.
                     Заполните форму или
                     <span className="blue-main">

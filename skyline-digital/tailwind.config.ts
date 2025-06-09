@@ -138,10 +138,16 @@ const config: Config = {
     		animation: {
     			rotateText: 'rotateText 10s linear infinite',
     			'accordion-down': 'accordion-down 0.2s ease-out',
-    			'accordion-up': 'accordion-up 0.2s ease-out'
+    			'accordion-up': 'accordion-up 0.2s ease-out',
+				"bg-change": "bgChange 3s ease-in-out ",
     		},
     		keyframes: {
-    			rotateText: {
+				bgChange: {
+					"0%": { backgroundColor: "#0DA4F5" },
+					"100%": { backgroundColor: "white " }
+				},
+
+				rotateText: {
     				'0%': {
     					transform: 'rotate(0deg)'
     				},
@@ -165,7 +171,8 @@ const config: Config = {
     					height: '0'
     				}
     			}
-    		}
+    		},
+
     	}
     },
 	plugins: [require("tailwindcss-animate")],

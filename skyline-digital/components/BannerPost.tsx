@@ -18,7 +18,7 @@ export const BannerPost = (props) => {
                         Erat nisi purus a aliquet habitant placerat. Porttitor fermentum laoreet libero
                         quisque urna porta augue nunc et.
                     </p>
-                    <div className="pt-50 lg:pt-0 lg:float-right">
+                    <div className="pt-50 lg:pt-0 lg:float-right  overflow-visible ">
                         <LeaveRequestLink />
                     </div>
                 </div>

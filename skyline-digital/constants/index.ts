@@ -41,9 +41,9 @@ import outGoingCallIcon from "@/app/assets/images/outgoingCall.svg"
 
 
 export const NAV_LINKS = [
-    {href: "/aboutus", label: "О нас", key: "about_us"},
-    {href: "/services", label: "Услуги", key: "services"},
-    {href: "/", label: "Портфолио", key: "portfolio"},
+    {href: "/aboutus", label: "О нас", key: "about_us", dropDown:false},
+    {href: "/services", label: "Услуги", key: "services", dropDown:true},
+    {href: "/", label: "Портфолио", key: "portfolio", dropDown:false},
 ]
 
 export const historyCompanyInfo = [

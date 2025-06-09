@@ -30,7 +30,7 @@ export function Reviews() {
                                             <SkyLineLogoButton
                                                 wCircle="small"
                                                 hCircle="small"
-                                                borCircle="small"
+                                                borCircle="thin"
                                                 wRectangle="small"
                                                 hRectangle="small"
                                                 borRectangle="thin"
@@ -39,7 +39,7 @@ export function Reviews() {
                                                 sizeTitle="sm"
                                                 sizeDesc="xs"
                                                 gapAll="small"
-                                                role="aboutus"
+                                                role="navbar"
                                             />
                                             <div className="flex items-center gap-3.5 ">
                                                 <span className="text-base text-xs">{item.stars}.0</span>

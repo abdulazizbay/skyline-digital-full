@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { LeaveRequestLink } from "@/components/Buttons";
 import { Card, CardContent } from "@/components/ui/card";
-
-export const Priorities = ({ priorityKey, imageTitle, mainImage, secTitle, label, desc }) => {
+import priorityimage from "@/app/assets/images/priorityImage1.svg"
+export const Priorities = ({ priorityKey,imageTitle,mainImage,secTitle, label,desc }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handleNext = () => {
@@ -14,9 +14,8 @@ export const Priorities = ({ priorityKey, imageTitle, mainImage, secTitle, label
 
     return (
         <div className="max-container-width  pt-150 lg:pt-100 relative">
-            <div className="  w-[150px] h-[444px] mt-[200px] lg:mt-[120px] absolute  bg-blue8 blur-150 lg:blur-[50px] lg:w-[70px] lg:h-[100px]   neon-shadow-box-light translate-x-60 lg:translate-x-6">
-            </div>
-            <div className="max-container flexBetween relative overflow-hidden ">
+
+            <div className="max-container flexBetween relative overflow-hidden">
                 <div className=" hidden md:flex w-[200px] h-[200px] absolute right-0 bg-blue7 blur-100 rounded-full  neon-shadow-box-light translate-x-52">
                 </div>
 
@@ -53,13 +52,12 @@ export const Priorities = ({ priorityKey, imageTitle, mainImage, secTitle, label
                         </div>
                     </div>
 
-                    <div className="flex justify-between ">
+                    <div className="flex justify-between">
                         <button
-                            className=" text-blue-main   "
+                            className="text-blue-main"
                             onClick={handleNext}
                             aria-label="Next"
                         >
-
                             →
                         </button>
                     </div>
@@ -80,6 +78,5 @@ export const Priorities = ({ priorityKey, imageTitle, mainImage, secTitle, label
                 </div>
             </div>
         </div>
-
     );
 };

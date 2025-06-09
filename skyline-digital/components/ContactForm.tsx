@@ -40,8 +40,12 @@ export function ContactForm({role}) {
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            mobile: true,
+            name: "",
+            email: "",
+            content: "",
+            termsAccepted: false,
         },
+
     });
     const router = useRouter();
 
@@ -209,12 +213,13 @@ export function ContactForm({role}) {
                                     ? (
                                         <div className="pt-50 flexBetween lg:pt-8">
                                             {SOCIALMEDIAINFO.map((item, key) => (
-                                                <a href={item.linkTo} key={key}>
-                                                    <div className="w-[180px] h-[100px] lg:w-100 lg:h-[56px] border-[1px] border-blue-main rounded-20 flex flexCol gap-1 lg:gap-0 justify-center items-center">
+                                                <a href={item.linkTo} key={key} className="group">
+                                                    <div className="w-[180px] h-[100px] lg:w-100 lg:h-[56px] border-[1px] border-blue-main rounded-20 flex flexCol gap-1 lg:gap-0 justify-center items-center transition duration-1000 ease-in-out group-hover:shadow-[0px_0px_1px_#0DA4F5,0px_0px_25px_#0DA4F5]">
                                                         <Image src={item.icon} alt="icon" className="lg:w-[16px] lg:h-[16px]"/>
                                                         <p className="text-base lg:text-[10px]">{item.label}</p>
                                                     </div>
                                                 </a>
+
                                             ))}
                                         </div>
                                     )
@@ -224,14 +229,13 @@ export function ContactForm({role}) {
 
                             <Button
                                 type="submit"
-                                className="w-full h-[68px] lg:h-[47px] bg-blue-main text-white text-2xl lg:text-sm bold-500 rounded-[100px] mt-50 hover:bg-blue-main"
+                                className="w-full h-[68px] lg:h-[47px] bg-blue-main text-white text-2xl lg:text-sm bold-500 rounded-[100px] mt-50
+    transition duration-1000 ease-in-out
+    hover:shadow-[0px_0px_1px_#0DA4F5,0px_0px_40px_#0DA4F5]"
                             >
-                                {role==="home"?
-                                    "Подать заявку"
-                                    :
-                                    "Отправить"
-                                }
+                                {role === "home" ? "Подать заявку" : "Отправить"}
                             </Button>
+
                         </form>
                     </Form>
                     <div>

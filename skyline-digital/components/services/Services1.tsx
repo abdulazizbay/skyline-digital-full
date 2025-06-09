@@ -101,27 +101,26 @@ export const Services1 = () => {
                                                     name="items"
                                                     render={({ field }) => (
                                                         <FormItem
-                                                            className="flex gap-5  w-[346px] lg:h-[58px]  h-90 bg-[#0DA4F51A] rounded-[24px] items-center pl-[40px] cursor-pointer"
+                                                            className="flex gap-5 w-[346px] lg:h-[58px] h-90 bg-[#0DA4F51A] rounded-[24px] items-center pl-[40px] cursor-pointer"
                                                         >
-                                                            <FormControl>
-                                                                <Checkbox
-                                                                    className="rounded-full w-5 h-5 bg-gray5 lg:w-2.5 lg:h-2.5"
-                                                                    checked={field.value?.includes(item.label)}
-                                                                    onCheckedChange={(checked) => {
-                                                                        return checked
-                                                                            ? field.onChange([...field.value, item.label])
-                                                                            : field.onChange(
-                                                                                field.value?.filter(
-                                                                                    (value) => value !== item.label
-                                                                                )
-                                                                            );
-                                                                    }}
-                                                                />
-                                                            </FormControl>
-                                                            <FormLabel className="flex gap-4 items-center">
+                                                            <FormLabel className="flex gap-4 items-center w-full cursor-pointer lg:h-[58px] h-90">
+                                                                <FormControl>
+                                                                    <Checkbox
+                                                                        className="rounded-full w-5 h-5 bg-gray5 lg:w-2.5 lg:h-2.5"
+                                                                        checked={field.value?.includes(item.label)}
+                                                                        onCheckedChange={(checked) => {
+                                                                            return checked
+                                                                                ? field.onChange([...field.value, item.label])
+                                                                                : field.onChange(
+                                                                                    field.value?.filter((value) => value !== item.label)
+                                                                                );
+                                                                        }}
+                                                                    />
+                                                                </FormControl>
                                                                 <h6 className="bold-500 lg:text-lg">{item.label}</h6>
                                                             </FormLabel>
                                                         </FormItem>
+
                                                     )}
                                                 />
                                             ))}
@@ -150,8 +149,11 @@ export const Services1 = () => {
 
     );
 };
-
-const NextPrevButton = ({ role, onClick }) => {
+type NextPrevButtonProps = {
+    role: "next" | "prev";
+    onClick?: () => void;
+};
+const NextPrevButton = ({ role, onClick }: NextPrevButtonProps) => {
     return (
         <>
             {role === "next" ? (
